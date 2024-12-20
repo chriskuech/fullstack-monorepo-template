@@ -1,0 +1,38 @@
+{
+  "folders": [
+    {
+      "path": ".github"
+    },
+    {
+      "path": "api"
+    },
+    {
+      "path": "app"
+    },
+    {
+      "name": "@",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "always",
+      "source.fixAll": "always",
+      "source.organizeImports": "never"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "prisma.prisma",
+      "ms-azuretools.vscode-docker",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ruschaaf.extended-embedded-languages",
+      "yoavbls.pretty-ts-errors",
+      "linear.linear-open-issue",
+      "redhat.vscode-yaml"
+    ]
+  }
+}

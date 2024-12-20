@@ -1,0 +1,71 @@
+{
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    // "deprecation",
+    "import"
+    // "unused-imports"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/strict",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2024,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": ["error", "as-needed"],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "never",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          }
+        ]
+      }
+    ],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["block-like", "class", "function"],
+        "next": "*"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": false
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "ignore" }
+    ],
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
+    "@typescript-eslint/no-unnecessary-condition": "error"
+    // "unused-imports/no-unused-imports": "error"
+  }
+}

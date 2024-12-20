@@ -1,0 +1,69 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:start": "tsx --watch --env-file=.env src/index.ts",
+    "dev:check": "tsc --watch --noEmit",
+    "gen:prisma": "prisma generate --no-hints",
+    "gen:client": "npm run start -- --gen",
+    "start": "node dist/index.js",
+    "lint": "eslint src",
+    "build": "tsup && npm run build:copy-artifacts",
+    "build:copy-artifacts": "cpx 'src/data/*' 'dist/data'"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@swc/core": "^1.7.26",
+    "@types/node": "^22.7.3",
+    "concurrently": "^9.0.1",
+    "cpx": "^1.5.0",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "pino-pretty": "^11.2.2",
+    "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/swagger": "^9.1.0",
+    "@prisma/client": "^5.20.0",
+    "fastify": "^5.0.0",
+    "fastify-type-provider-zod": "^3.0.0",
+    "openapi-typescript": "^7.4.1",
+    "prisma": "^5.20.0",
+    "remeda": "^2.14.0",
+    "source-map-support": "^0.5.21",
+    "tsx": "^4.19.1",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.3"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed/main.ts"
+  },
+  "tsup": {
+    "sourcemap": true,
+    "clean": true,
+    "treeshake": false,
+    "format": [
+      "esm"
+    ],
+    "entry": [
+      "src/index.ts"
+    ]
+  }
+}
